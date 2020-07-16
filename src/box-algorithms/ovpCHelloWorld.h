@@ -11,10 +11,10 @@ class CHelloWorld final : public Toolkit::TBoxAlgorithm<IBoxAlgorithm>
 {
 public:
 
-	void release() override;
+	void release() override { delete this; }
 	uint64_t getClockFrequency() override;
 	bool processClock(CMessage& /*msg*/) override;
-	bool process() override;
+	bool process() override { return true; }
 
 	_IsDerivedFromClass_Final_(OpenViBE::Plugins::IBoxAlgorithm, Box_TemplateHelloWorld)
 };
@@ -46,7 +46,7 @@ public:
 	CIdentifier getCreatedClass() const override { return Box_TemplateHelloWorld; }
 	IPluginObject* create() override { return new CHelloWorld(); }
 	IBoxListener* createBoxListener() const override { return new CHelloWorldListener; }
-	void releaseBoxListener(IBoxListener* pBoxListener) const override { delete pBoxListener; }
+	void releaseBoxListener(IBoxListener* boxListener) const override { delete boxListener; }
 
 	bool getBoxPrototype(Kernel::IBoxProto& prototype) const override
 	{
