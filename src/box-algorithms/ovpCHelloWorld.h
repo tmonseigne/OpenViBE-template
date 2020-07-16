@@ -1,5 +1,4 @@
-#ifndef __SamplePlugin_CHelloWorld_H__
-#define __SamplePlugin_CHelloWorld_H__
+#pragma once
 
 #include "../ovp_defines.h"
 #include <toolkit/ovtk_all.h>
@@ -66,5 +65,3 @@ public:
 
 };
 };
-
-#endif // __SamplePlugin_CHelloWorld_H__
