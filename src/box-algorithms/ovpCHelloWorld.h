@@ -11,10 +11,10 @@ class CHelloWorld : public Toolkit::TBoxAlgorithm<IBoxAlgorithm>
 {
 public:
 
-	virtual void release();
-	virtual uint64_t getClockFrequency();
-	virtual bool processClock(CMessage& /*msg*/);
-	virtual bool process();
+	void release() override;
+	uint64_t getClockFrequency() override;
+	bool processClock(CMessage& /*msg*/) override;
+	bool process() override;
 
 	_IsDerivedFromClass_Final_(OpenViBE::Plugins::IBoxAlgorithm, Box_TemplateHelloWorld)
 };
@@ -30,26 +30,26 @@ class CHelloWorldDesc : public IBoxAlgorithmDesc
 {
 public:
 
-	virtual void release() { }
-	virtual CString getName() const { return "Template HelloWorld"; }
-	virtual CString getAuthorName() const { return ""; }
-	virtual CString getAuthorCompanyName() const { return "INRIA"; }
-	virtual CString getShortDescription() const { return "Prints \"Hello World!\" to the log with a user-specified frequency"; }
-	virtual CString getDetailedDescription() const
+	void release() override { }
+	CString getName() const override { return "Template HelloWorld"; }
+	CString getAuthorName() const override { return ""; }
+	CString getAuthorCompanyName() const override { return "INRIA"; }
+	CString getShortDescription() const override { return "Prints \"Hello World!\" to the log with a user-specified frequency"; }
+	CString getDetailedDescription() const override
 	{
 		return "Using several copies of this friendly box (with different names) can be used to e.g. examine box execution order";
 	}
-	virtual CString getCategory() const { return "Examples/Basic"; }
-	virtual CString getVersion() const { return "1.0"; }
-	virtual CString getStockItemName() const { return "gtk-copy"; }
+	CString getCategory() const override { return "Examples/Basic"; }
+	CString getVersion() const override { return "1.0"; }
+	CString getStockItemName() const override { return "gtk-copy"; }
 
-	virtual CIdentifier getCreatedClass() const { return Box_TemplateHelloWorld; }
-	virtual IPluginObject* create() { return new CHelloWorld(); }
-	virtual IBoxListener* createBoxListener() const { return new CHelloWorldListener; }
-	virtual void releaseBoxListener(IBoxListener* pBoxListener) const { delete pBoxListener; }
+	CIdentifier getCreatedClass() const override { return Box_TemplateHelloWorld; }
+	IPluginObject* create() override { return new CHelloWorld(); }
+	IBoxListener* createBoxListener() const override { return new CHelloWorldListener; }
+	void releaseBoxListener(IBoxListener* pBoxListener) const override { delete pBoxListener; }
 
-	virtual bool getBoxPrototype(
-		Kernel::IBoxProto& rPrototype) const
+	bool getBoxPrototype(
+		Kernel::IBoxProto& rPrototype) const override
 	{
 		rPrototype.addSetting("Frequency (Hz)", OV_TypeId_Float, "1.0");
 		rPrototype.addSetting("My greeting", OV_TypeId_String, "Hello World!");
