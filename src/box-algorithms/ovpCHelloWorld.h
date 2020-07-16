@@ -7,7 +7,7 @@ namespace OpenViBE {
 namespace Plugins {
 namespace Template {
 
-class CHelloWorld : public Toolkit::TBoxAlgorithm<IBoxAlgorithm>
+class CHelloWorld final : public Toolkit::TBoxAlgorithm<IBoxAlgorithm>
 {
 public:
 
@@ -19,14 +19,14 @@ public:
 	_IsDerivedFromClass_Final_(OpenViBE::Plugins::IBoxAlgorithm, Box_TemplateHelloWorld)
 };
 
-class CHelloWorldListener : public Toolkit::TBoxListener<IBoxListener>
+class CHelloWorldListener final : public Toolkit::TBoxListener<IBoxListener>
 {
 public:
 
 	_IsDerivedFromClass_Final_(Toolkit::TBoxListener < OpenViBE::Plugins::IBoxListener >, CIdentifier::undefined());
 };
 
-class CHelloWorldDesc : public IBoxAlgorithmDesc
+class CHelloWorldDesc final : public IBoxAlgorithmDesc
 {
 public:
 
