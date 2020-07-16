@@ -1,6 +1,6 @@
 /*
  * Prints user-specified greeting to the log with given frequency 
- */ 
+ */
 #include "ovpCHelloWorld.h"
 
 #include <cstdlib>		// atof
@@ -18,14 +18,10 @@ OpenViBE::uint64 CHelloWorld::getClockFrequency(void)
 	return ITimeArithmetics::secondsToTime(l_f64Frequency);
 }
 
-void CHelloWorld::release(void)
-{
-	delete this;
-}
+void CHelloWorld::release(void) { delete this; }
 
 boolean CHelloWorld::processClock(OpenViBE::Kernel::IMessageClock& /* rMessageClock */)
 {
-
 	const CString l_sMyGreeting = FSettingValueAutoCast(*this->getBoxAlgorithmContext(), 1);
 
 	getLogManager() << OpenViBE::Kernel::LogLevel_Info << ": " << l_sMyGreeting << "\n";
@@ -33,8 +29,4 @@ boolean CHelloWorld::processClock(OpenViBE::Kernel::IMessageClock& /* rMessageCl
 	return true;
 }
 
-boolean CHelloWorld::process(void)
-{
-	return true;
-}
-
+boolean CHelloWorld::process(void) { return true; }
