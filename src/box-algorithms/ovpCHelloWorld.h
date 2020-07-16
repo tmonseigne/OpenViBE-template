@@ -2,7 +2,6 @@
 
 #include "../ovp_defines.h"
 #include <toolkit/ovtk_all.h>
-#include <cstdio>
 
 namespace OpenViBE {
 namespace Plugins {
@@ -17,14 +16,14 @@ public:
 	virtual bool processClock(CMessage& /*msg*/);
 	virtual bool process();
 
-	_IsDerivedFromClass_Final_(OpenViBE::Plugins::IBoxAlgorithm, OVP_ClassId_HelloWorld)
+	_IsDerivedFromClass_Final_(OpenViBE::Plugins::IBoxAlgorithm, Box_TemplateHelloWorld)
 };
 
 class CHelloWorldListener : public Toolkit::TBoxListener<IBoxListener>
 {
 public:
 
-	_IsDerivedFromClass_Final_(Toolkit::TBoxListener < OpenViBE::Plugins::IBoxListener >, OV_UndefinedIdentifier);
+	_IsDerivedFromClass_Final_(Toolkit::TBoxListener < OpenViBE::Plugins::IBoxListener >, CIdentifier::undefined());
 };
 
 class CHelloWorldDesc : public IBoxAlgorithmDesc
@@ -44,7 +43,7 @@ public:
 	virtual CString getVersion() const { return "1.0"; }
 	virtual CString getStockItemName() const { return "gtk-copy"; }
 
-	virtual CIdentifier getCreatedClass() const { return OVP_ClassId_HelloWorld; }
+	virtual CIdentifier getCreatedClass() const { return Box_TemplateHelloWorld; }
 	virtual IPluginObject* create() { return new CHelloWorld(); }
 	virtual IBoxListener* createBoxListener() const { return new CHelloWorldListener; }
 	virtual void releaseBoxListener(IBoxListener* pBoxListener) const { delete pBoxListener; }
@@ -58,7 +57,7 @@ public:
 		return true;
 	}
 
-	_IsDerivedFromClass_Final_(OpenViBE::Plugins::IBoxAlgorithmDesc, OVP_ClassId_HelloWorldDesc)
+	_IsDerivedFromClass_Final_(OpenViBE::Plugins::IBoxAlgorithmDesc, Box_TemplateHelloWorldDesc)
 };
 
 }
