@@ -1,4 +1,4 @@
-#include "ovpCHelloWorld.h"
+#include "CHelloWorld.hpp"
 
 namespace OpenViBE {
 namespace Plugins {
