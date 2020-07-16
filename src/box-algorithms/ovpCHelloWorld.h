@@ -32,17 +32,17 @@ class CHelloWorldDesc : public IBoxAlgorithmDesc
 public:
 
 	virtual void release() { }
-	virtual CString getName() const { return CString("HelloWorld"); }
-	virtual CString getAuthorName() const { return CString(""); }
-	virtual CString getAuthorCompanyName() const { return CString("INRIA"); }
-	virtual CString getShortDescription() const { return CString("Prints \"Hello World!\" to the log with a user-specified frequency"); }
+	virtual CString getName() const { return "Template HelloWorld"; }
+	virtual CString getAuthorName() const { return ""; }
+	virtual CString getAuthorCompanyName() const { return "INRIA"; }
+	virtual CString getShortDescription() const { return "Prints \"Hello World!\" to the log with a user-specified frequency"; }
 	virtual CString getDetailedDescription() const
 	{
-		return CString("Using several copies of this friendly box (with different names) can be used to e.g. examine box execution order");
+		return "Using several copies of this friendly box (with different names) can be used to e.g. examine box execution order";
 	}
-	virtual CString getCategory() const { return CString("Examples/Basic"); }
-	virtual CString getVersion() const { return CString("1.0"); }
-	virtual CString getStockItemName() const { return CString("gtk-copy"); }
+	virtual CString getCategory() const { return "Examples/Basic"; }
+	virtual CString getVersion() const { return "1.0"; }
+	virtual CString getStockItemName() const { return "gtk-copy"; }
 
 	virtual CIdentifier getCreatedClass() const { return OVP_ClassId_HelloWorld; }
 	virtual IPluginObject* create() { return new CHelloWorld(); }
