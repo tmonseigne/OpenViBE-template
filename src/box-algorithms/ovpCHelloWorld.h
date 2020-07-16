@@ -48,11 +48,10 @@ public:
 	IBoxListener* createBoxListener() const override { return new CHelloWorldListener; }
 	void releaseBoxListener(IBoxListener* pBoxListener) const override { delete pBoxListener; }
 
-	bool getBoxPrototype(
-		Kernel::IBoxProto& rPrototype) const override
+	bool getBoxPrototype(Kernel::IBoxProto& prototype) const override
 	{
-		rPrototype.addSetting("Frequency (Hz)", OV_TypeId_Float, "1.0");
-		rPrototype.addSetting("My greeting", OV_TypeId_String, "Hello World!");
+		prototype.addSetting("Frequency (Hz)", OV_TypeId_Float, "1.0");
+		prototype.addSetting("My greeting", OV_TypeId_String, "Hello World!");
 
 		return true;
 	}
