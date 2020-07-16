@@ -6,9 +6,9 @@
 #include <cstdlib>		// atof
 #include <openvibe/ovITimeArithmetics.h>
 
-using namespace OpenViBE;
-using namespace OpenViBE::Plugins::Template;
-
+namespace OpenViBE {
+namespace Plugins {
+namespace Template {
 
 OpenViBE::uint64 CHelloWorld::getClockFrequency()
 {
@@ -30,3 +30,7 @@ boolean CHelloWorld::processClock(OpenViBE::Kernel::IMessageClock& /* rMessageCl
 }
 
 boolean CHelloWorld::process() { return true; }
+
+}
+}
+}
