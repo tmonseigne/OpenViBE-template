@@ -16,14 +16,14 @@ public:
 	bool processClock(CMessage& /*msg*/) override;
 	bool process() override { return true; }
 
-	_IsDerivedFromClass_Final_(OpenViBE::Plugins::IBoxAlgorithm, Box_TemplateHelloWorld)
+	_IsDerivedFromClass_Final_(IBoxAlgorithm, Box_TemplateHelloWorld)
 };
 
 class CHelloWorldListener final : public Toolkit::TBoxListener<IBoxListener>
 {
 public:
 
-	_IsDerivedFromClass_Final_(Toolkit::TBoxListener < OpenViBE::Plugins::IBoxListener >, CIdentifier::undefined());
+	_IsDerivedFromClass_Final_(Toolkit::TBoxListener<IBoxListener>, CIdentifier::undefined());
 };
 
 class CHelloWorldDesc final : public IBoxAlgorithmDesc
@@ -59,6 +59,6 @@ public:
 	_IsDerivedFromClass_Final_(OpenViBE::Plugins::IBoxAlgorithmDesc, Box_TemplateHelloWorldDesc)
 };
 
-}
-}
-}
+}  // namespace Template
+}  // namespace Plugins
+}  // namespace OpenViBE
