@@ -8,7 +8,7 @@ namespace OpenViBE {
 namespace Plugins {
 namespace Template {
 
-class CHelloWorld : public Toolkit::TBoxAlgorithm<OpenViBE::Plugins::IBoxAlgorithm>
+class CHelloWorld : public Toolkit::TBoxAlgorithm<IBoxAlgorithm>
 {
 public:
 
@@ -20,37 +20,37 @@ public:
 	_IsDerivedFromClass_Final_(OpenViBE::Plugins::IBoxAlgorithm, OVP_ClassId_HelloWorld)
 };
 
-class CHelloWorldListener : public Toolkit::TBoxListener<OpenViBE::Plugins::IBoxListener>
+class CHelloWorldListener : public Toolkit::TBoxListener<IBoxListener>
 {
 public:
 
-	_IsDerivedFromClass_Final_(OpenViBEToolkit::TBoxListener < OpenViBE::Plugins::IBoxListener >, OV_UndefinedIdentifier);
+	_IsDerivedFromClass_Final_(Toolkit::TBoxListener < OpenViBE::Plugins::IBoxListener >, OV_UndefinedIdentifier);
 };
 
-class CHelloWorldDesc : public OpenViBE::Plugins::IBoxAlgorithmDesc
+class CHelloWorldDesc : public IBoxAlgorithmDesc
 {
 public:
 
 	virtual void release() { }
-	virtual OpenViBE::CString getName() const { return OpenViBE::CString("HelloWorld"); }
-	virtual OpenViBE::CString getAuthorName() const { return OpenViBE::CString(""); }
-	virtual OpenViBE::CString getAuthorCompanyName() const { return OpenViBE::CString("INRIA"); }
-	virtual OpenViBE::CString getShortDescription() const { return OpenViBE::CString("Prints \"Hello World!\" to the log with a user-specified frequency"); }
-	virtual OpenViBE::CString getDetailedDescription() const
+	virtual CString getName() const { return CString("HelloWorld"); }
+	virtual CString getAuthorName() const { return CString(""); }
+	virtual CString getAuthorCompanyName() const { return CString("INRIA"); }
+	virtual CString getShortDescription() const { return CString("Prints \"Hello World!\" to the log with a user-specified frequency"); }
+	virtual CString getDetailedDescription() const
 	{
-		return OpenViBE::CString("Using several copies of this friendly box (with different names) can be used to e.g. examine box execution order");
+		return CString("Using several copies of this friendly box (with different names) can be used to e.g. examine box execution order");
 	}
-	virtual OpenViBE::CString getCategory() const { return OpenViBE::CString("Examples/Basic"); }
-	virtual OpenViBE::CString getVersion() const { return OpenViBE::CString("1.0"); }
-	virtual OpenViBE::CString getStockItemName() const { return OpenViBE::CString("gtk-copy"); }
+	virtual CString getCategory() const { return CString("Examples/Basic"); }
+	virtual CString getVersion() const { return CString("1.0"); }
+	virtual CString getStockItemName() const { return CString("gtk-copy"); }
 
-	virtual OpenViBE::CIdentifier getCreatedClass() const { return OVP_ClassId_HelloWorld; }
-	virtual OpenViBE::Plugins::IPluginObject* create() { return new OpenViBE::Plugins::Examples::CHelloWorld(); }
-	virtual OpenViBE::Plugins::IBoxListener* createBoxListener() const { return new CHelloWorldListener; }
-	virtual void releaseBoxListener(OpenViBE::Plugins::IBoxListener* pBoxListener) const { delete pBoxListener; }
+	virtual CIdentifier getCreatedClass() const { return OVP_ClassId_HelloWorld; }
+	virtual IPluginObject* create() { return new CHelloWorld(); }
+	virtual IBoxListener* createBoxListener() const { return new CHelloWorldListener; }
+	virtual void releaseBoxListener(IBoxListener* pBoxListener) const { delete pBoxListener; }
 
 	virtual bool getBoxPrototype(
-		OpenViBE::Kernel::IBoxProto& rPrototype) const
+		Kernel::IBoxProto& rPrototype) const
 	{
 		rPrototype.addSetting("Frequency (Hz)", OV_TypeId_Float, "1.0");
 		rPrototype.addSetting("My greeting", OV_TypeId_String, "Hello World!");

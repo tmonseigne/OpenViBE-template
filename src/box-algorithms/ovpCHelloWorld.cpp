@@ -12,7 +12,6 @@ namespace Template {
 uint64_t CHelloWorld::getClockFrequency()
 {
 	const double l_f64Frequency = FSettingValueAutoCast(*this->getBoxAlgorithmContext(), 0);
-
 	// We need the freq in 32:32 fixed point time
 	return CTime::fromSeconds(l_f64Frequency);
 }
