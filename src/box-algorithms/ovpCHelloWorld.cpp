@@ -7,7 +7,7 @@
 #include <openvibe/ovITimeArithmetics.h>
 
 using namespace OpenViBE;
-using namespace OpenViBEPlugins::Examples;
+using namespace OpenViBE::Plugins::Template;
 
 
 OpenViBE::uint64 CHelloWorld::getClockFrequency(void)

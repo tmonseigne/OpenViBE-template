@@ -4,8 +4,9 @@
 #include <toolkit/ovtk_all.h>
 #include <cstdio>
 
-namespace OpenViBEPlugins {
-namespace Examples {
+namespace OpenViBE {
+	namespace Plugins {
+		namespace Template {
 
 class CHelloWorld : public OpenViBEToolkit::TBoxAlgorithm<OpenViBE::Plugins::IBoxAlgorithm>
 {
@@ -63,5 +64,6 @@ public:
 	_IsDerivedFromClass_Final_(OpenViBE::Plugins::IBoxAlgorithmDesc, OVP_ClassId_HelloWorldDesc)
 };
 
-};
+		};
+	};
 };
