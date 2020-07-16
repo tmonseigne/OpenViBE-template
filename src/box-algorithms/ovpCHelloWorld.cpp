@@ -10,9 +10,9 @@ namespace OpenViBE {
 namespace Plugins {
 namespace Template {
 
-OpenViBE::uint64 CHelloWorld::getClockFrequency()
+uint64_t CHelloWorld::getClockFrequency()
 {
-	const float64 l_f64Frequency = FSettingValueAutoCast(*this->getBoxAlgorithmContext(), 0);
+	const double l_f64Frequency = FSettingValueAutoCast(*this->getBoxAlgorithmContext(), 0);
 
 	// We need the freq in 32:32 fixed point time
 	return ITimeArithmetics::secondsToTime(l_f64Frequency);
@@ -20,7 +20,7 @@ OpenViBE::uint64 CHelloWorld::getClockFrequency()
 
 void CHelloWorld::release() { delete this; }
 
-boolean CHelloWorld::processClock(OpenViBE::Kernel::IMessageClock& /* rMessageClock */)
+bool CHelloWorld::processClock(OpenViBE::Kernel::IMessageClock& /* rMessageClock */)
 {
 	const CString l_sMyGreeting = FSettingValueAutoCast(*this->getBoxAlgorithmContext(), 1);
 
@@ -29,7 +29,7 @@ boolean CHelloWorld::processClock(OpenViBE::Kernel::IMessageClock& /* rMessageCl
 	return true;
 }
 
-boolean CHelloWorld::process() { return true; }
+bool CHelloWorld::process() { return true; }
 
 }
 }

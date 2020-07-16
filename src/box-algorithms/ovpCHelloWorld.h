@@ -8,19 +8,19 @@ namespace OpenViBE {
 	namespace Plugins {
 		namespace Template {
 
-class CHelloWorld : public OpenViBEToolkit::TBoxAlgorithm<OpenViBE::Plugins::IBoxAlgorithm>
+class CHelloWorld : public Toolkit::TBoxAlgorithm<OpenViBE::Plugins::IBoxAlgorithm>
 {
 public:
 
 	virtual void release();
-	virtual OpenViBE::uint64 getClockFrequency();
-	virtual OpenViBE::boolean processClock(OpenViBE::Kernel::IMessageClock& /* rMessageClock */);
-	virtual OpenViBE::boolean process();
+	virtual uint64_t getClockFrequency();
+	virtual bool processClock(OpenViBE::Kernel::IMessageClock& /* rMessageClock */);
+	virtual bool process();
 
 	_IsDerivedFromClass_Final_(OpenViBE::Plugins::IBoxAlgorithm, OVP_ClassId_HelloWorld)
 };
 
-class CHelloWorldListener : public OpenViBEToolkit::TBoxListener<OpenViBE::Plugins::IBoxListener>
+class CHelloWorldListener : public Toolkit::TBoxListener<OpenViBE::Plugins::IBoxListener>
 {
 public:
 
@@ -52,7 +52,7 @@ public:
 	virtual OpenViBE::Plugins::IBoxListener* createBoxListener() const { return new CHelloWorldListener; }
 	virtual void releaseBoxListener(OpenViBE::Plugins::IBoxListener* pBoxListener) const { delete pBoxListener; }
 
-	virtual OpenViBE::boolean getBoxPrototype(
+	virtual bool getBoxPrototype(
 		OpenViBE::Kernel::IBoxProto& rPrototype) const
 	{
 		rPrototype.addSetting("Frequency (Hz)", OV_TypeId_Float, "1.0");
