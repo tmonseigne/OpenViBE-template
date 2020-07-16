@@ -12,10 +12,10 @@ class CHelloWorld : public OpenViBEToolkit::TBoxAlgorithm<OpenViBE::Plugins::IBo
 {
 public:
 
-	virtual void release(void);
-	virtual OpenViBE::uint64 getClockFrequency(void);
+	virtual void release();
+	virtual OpenViBE::uint64 getClockFrequency();
 	virtual OpenViBE::boolean processClock(OpenViBE::Kernel::IMessageClock& /* rMessageClock */);
-	virtual OpenViBE::boolean process(void);
+	virtual OpenViBE::boolean process();
 
 	_IsDerivedFromClass_Final_(OpenViBE::Plugins::IBoxAlgorithm, OVP_ClassId_HelloWorld)
 };
@@ -31,25 +31,25 @@ class CHelloWorldDesc : public OpenViBE::Plugins::IBoxAlgorithmDesc
 {
 public:
 
-	virtual void release(void) { }
-	virtual OpenViBE::CString getName(void) const { return OpenViBE::CString("HelloWorld"); }
-	virtual OpenViBE::CString getAuthorName(void) const { return OpenViBE::CString(""); }
-	virtual OpenViBE::CString getAuthorCompanyName(void) const { return OpenViBE::CString("INRIA"); }
-	virtual OpenViBE::CString getShortDescription(void) const
+	virtual void release() { }
+	virtual OpenViBE::CString getName() const { return OpenViBE::CString("HelloWorld"); }
+	virtual OpenViBE::CString getAuthorName() const { return OpenViBE::CString(""); }
+	virtual OpenViBE::CString getAuthorCompanyName() const { return OpenViBE::CString("INRIA"); }
+	virtual OpenViBE::CString getShortDescription() const
 	{
 		return OpenViBE::CString("Prints \"Hello World!\" to the log with a user-specified frequency");
 	}
-	virtual OpenViBE::CString getDetailedDescription(void) const
+	virtual OpenViBE::CString getDetailedDescription() const
 	{
 		return OpenViBE::CString("Using several copies of this friendly box (with different names) can be used to e.g. examine box execution order");
 	}
-	virtual OpenViBE::CString getCategory(void) const { return OpenViBE::CString("Examples/Basic"); }
-	virtual OpenViBE::CString getVersion(void) const { return OpenViBE::CString("1.0"); }
-	virtual OpenViBE::CString getStockItemName(void) const { return OpenViBE::CString("gtk-copy"); }
+	virtual OpenViBE::CString getCategory() const { return OpenViBE::CString("Examples/Basic"); }
+	virtual OpenViBE::CString getVersion() const { return OpenViBE::CString("1.0"); }
+	virtual OpenViBE::CString getStockItemName() const { return OpenViBE::CString("gtk-copy"); }
 
-	virtual OpenViBE::CIdentifier getCreatedClass(void) const { return OVP_ClassId_HelloWorld; }
-	virtual OpenViBE::Plugins::IPluginObject* create(void) { return new OpenViBEPlugins::Examples::CHelloWorld(); }
-	virtual OpenViBE::Plugins::IBoxListener* createBoxListener(void) const { return new CHelloWorldListener; }
+	virtual OpenViBE::CIdentifier getCreatedClass() const { return OVP_ClassId_HelloWorld; }
+	virtual OpenViBE::Plugins::IPluginObject* create() { return new OpenViBE::Plugins::Examples::CHelloWorld(); }
+	virtual OpenViBE::Plugins::IBoxListener* createBoxListener() const { return new CHelloWorldListener; }
 	virtual void releaseBoxListener(OpenViBE::Plugins::IBoxListener* pBoxListener) const { delete pBoxListener; }
 
 	virtual OpenViBE::boolean getBoxPrototype(
@@ -64,6 +64,6 @@ public:
 	_IsDerivedFromClass_Final_(OpenViBE::Plugins::IBoxAlgorithmDesc, OVP_ClassId_HelloWorldDesc)
 };
 
-		};
-	};
-};
+		}
+	}
+}
