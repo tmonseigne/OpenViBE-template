@@ -19,7 +19,7 @@ uint64_t CHelloWorld::getClockFrequency()
 
 void CHelloWorld::release() { delete this; }
 
-bool CHelloWorld::processClock(OpenViBE::Kernel::IMessageClock& /* rMessageClock */)
+bool CHelloWorld::processClock(CMessage& /*msg*/)
 {
 	const CString l_sMyGreeting = FSettingValueAutoCast(*this->getBoxAlgorithmContext(), 1);
 

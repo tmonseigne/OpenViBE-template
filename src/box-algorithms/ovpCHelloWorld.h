@@ -5,8 +5,8 @@
 #include <cstdio>
 
 namespace OpenViBE {
-	namespace Plugins {
-		namespace Template {
+namespace Plugins {
+namespace Template {
 
 class CHelloWorld : public Toolkit::TBoxAlgorithm<OpenViBE::Plugins::IBoxAlgorithm>
 {
@@ -14,7 +14,7 @@ public:
 
 	virtual void release();
 	virtual uint64_t getClockFrequency();
-	virtual bool processClock(OpenViBE::Kernel::IMessageClock& /* rMessageClock */);
+	virtual bool processClock(CMessage& /*msg*/);
 	virtual bool process();
 
 	_IsDerivedFromClass_Final_(OpenViBE::Plugins::IBoxAlgorithm, OVP_ClassId_HelloWorld)
@@ -35,10 +35,7 @@ public:
 	virtual OpenViBE::CString getName() const { return OpenViBE::CString("HelloWorld"); }
 	virtual OpenViBE::CString getAuthorName() const { return OpenViBE::CString(""); }
 	virtual OpenViBE::CString getAuthorCompanyName() const { return OpenViBE::CString("INRIA"); }
-	virtual OpenViBE::CString getShortDescription() const
-	{
-		return OpenViBE::CString("Prints \"Hello World!\" to the log with a user-specified frequency");
-	}
+	virtual OpenViBE::CString getShortDescription() const { return OpenViBE::CString("Prints \"Hello World!\" to the log with a user-specified frequency"); }
 	virtual OpenViBE::CString getDetailedDescription() const
 	{
 		return OpenViBE::CString("Using several copies of this friendly box (with different names) can be used to e.g. examine box execution order");
@@ -64,6 +61,6 @@ public:
 	_IsDerivedFromClass_Final_(OpenViBE::Plugins::IBoxAlgorithmDesc, OVP_ClassId_HelloWorldDesc)
 };
 
-		}
-	}
+}
+}
 }
